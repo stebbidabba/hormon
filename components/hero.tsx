@@ -14,8 +14,8 @@ export default function Hero() {
           Accurate, at-home saliva testing. Free testosterone alone, or bundle with cortisol and DHEA for a complete view.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
-          <Link href="/buy/male-vitality-pack" className={cn(buttonVariants({ variant: "default" }), "bg-brand hover:bg-brand/90 text-white px-6 py-6 text-base")}>Get Male Vitality Pack</Link>
-          <Link href="/buy/testosterone" className={cn(buttonVariants({ variant: "outline" }), "border-brand text-brand hover:bg-brand hover:text-white px-6 py-6 text-base")}>Get Testosterone Test</Link>
+          <Link href="/buy/male-vitality-pack" className={cn(buttonVariants({ variant: "default" }), "bg-brand hover:bg-brand/90 text-white px-6 py-6 text-base")}>Get Stress & Energy Kit</Link>
+          <Link href="/buy/testosterone" className={cn(buttonVariants({ variant: "outline" }), "border-brand text-brand hover:bg-brand hover:text-white px-6 py-6 text-base")}>Get Testosterone Kit</Link>
         </div>
       </div>
     </section>

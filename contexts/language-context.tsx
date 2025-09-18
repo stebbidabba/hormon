@@ -41,8 +41,8 @@ const translations = {
     // Home page
     knowYourT: "Measure your hormone levels at home",
     hormonesDrive: "Your hormones drive energy, strength, mood, sleep, and focus. Measure what matters — at home.",
-    getMaleVitalityPack: "Get Male Vitality Pack — $120",
-    getTestosteroneTest: "Get Free Testosterone Test — $50",
+    getMaleVitalityPack: "Get Stress & Energy Kit — $120",
+    getTestosteroneTest: "Get Testosterone Kit — $50",
     trustCues: "At-home saliva • Research Use Only (RUO) • Clear results • Personal guidance and tips included",
     
     // Home page sections
@@ -120,8 +120,8 @@ const translations = {
     
     accurateAtHome: "Accurate. At-home. Affordable.",
     accurateIntro: "Get high-quality, research-grade measurements at a fraction of typical private lab prices — with zero clinic overhead. Everything needed comes in the kit.",
-    testosteroneTest: "Free Testosterone Test",
-    maleVitalityPack: "Male Vitality Pack (Free T + Cortisol + DHEA)",
+    testosteroneTest: "Testosterone Kit",
+    maleVitalityPack: "Stress & Energy Kit",
     normally150: "Normally $150 if purchased separately — Save $30.",
     clearInstructions: "Clear instructions. Single morning saliva sample. RUO for wellness/performance insights.",
     
@@ -236,8 +236,8 @@ const translations = {
     // Home page
     knowYourT: "Mældu hormónagildin þín heima",
     hormonesDrive: "Hormónin þín stjórna orku, styrk, skapi, svefni og einbeitingu. Mældu það sem skiptir máli — heima.",
-    getMaleVitalityPack: "Fáðu Male Vitality Pack — $120",
-    getTestosteroneTest: "Fáðu Testosterone Test — $50",
+    getMaleVitalityPack: "Fáðu Streitu & Orku sett — $120",
+    getTestosteroneTest: "Fáðu Testósterón sett — $50",
     trustCues: "Heima munnvatn • Rannsóknarviðurkenning (RUO) • Skýrar niðurstöður • Persónuleg leiðsögn og ráð fylgja",
     
     // Home page sections
@@ -315,8 +315,8 @@ const translations = {
     
     accurateAtHome: "Nákvæmt. Heima. Ódýrt.",
     accurateIntro: "Fáðu hágæða, rannsóknarstigsmælingar á broti af venjulegum einkalaboratoríuverði — með núll heilbrigðisstofnunarkostnaði. Allt sem þarf kemur í pakkann.",
-    testosteroneTest: "Free Testosterone Test",
-    maleVitalityPack: "Male Vitality Pack (Free T + Cortisol + DHEA)",
+    testosteroneTest: "Testósterón sett",
+    maleVitalityPack: "Streitu & Orku sett",
     normally150: "Venjulega $150 ef keypt sérstaklega — Sparaðu $30.",
     clearInstructions: "Skýrar leiðbeiningar. Ein morgunmunnvatnsúrtak. RUO fyrir heilsu/afkastagetu innsýn.",
     
