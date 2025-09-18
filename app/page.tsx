@@ -67,7 +67,7 @@ export default function Home() {
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]">{t("knowYourT")}</h1>
             <p className="mt-5 text-lg text-neutral-700 max-w-2xl">{t("hormonesDrive")}</p>
             <div className="mt-8 flex flex-wrap gap-3 items-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">{t("launchOffer")} • {t("first50off")}</span>
+              <span className="inline-flex items-center gap-2 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">{t("first50off")}</span>
               <Link href="/shop" className={cn(buttonVariants({ variant: "default" }), "rounded-full bg-brand hover:bg-accent text-white px-6 py-6 text-base")}>{t("getYourKit")}</Link>
             </div>
             <p className="mt-4 text-xs text-neutral-600">{t("trustCues")}</p>
@@ -96,7 +96,6 @@ export default function Home() {
                   <div className="p-6">
                     <div className="flex items-center justify-between">
                       <h3 className="text-xl font-semibold">{t("testosteroneKit")}</h3>
-                      <span className="rounded-full bg-accent/10 text-accent text-xs px-3 py-1">{t("launchOffer")}</span>
                     </div>
                     <p className="mt-2 text-neutral-700 text-sm">Track free testosterone for strength, recovery and vitality.</p>
                     <div className="mt-4">
@@ -114,7 +113,6 @@ export default function Home() {
                   <div className="p-6">
                     <div className="flex items-center justify-between">
                       <h3 className="text-xl font-semibold">{t("stressEnergyKit")}</h3>
-                      <span className="rounded-full bg-accent/10 text-accent text-xs px-3 py-1">{t("launchOffer")}</span>
                     </div>
                     <p className="mt-2 text-neutral-700 text-sm">Balance stress and energy with a simple at-home kit.</p>
                     <div className="mt-4">

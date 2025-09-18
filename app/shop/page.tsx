@@ -114,10 +114,7 @@ export default function Page() {
       <Navbar />
       <main className="flex-1">
         <section className="mx-auto max-w-6xl px-4 py-16">
-          <div className="flex items-center justify-between">
-            <h1 className="text-3xl font-bold tracking-tight">{t("shopTitle")}</h1>
-            <span className="rounded-full bg-accent/10 text-accent text-xs px-3 py-1">{t("first50off")}</span>
-          </div>
+          <h1 className="text-3xl font-bold tracking-tight">{t("shopTitle")}</h1>
           <div className="mt-8 grid gap-6 md:grid-cols-2">
             <ProductCard
               title={t("testosteroneKit")}
