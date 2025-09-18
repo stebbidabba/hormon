@@ -4,6 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
+import FAQ from "@/components/faq";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { cn } from "@/lib/utils";
 import { buttonVariants } from "@/components/ui/button";
@@ -444,42 +445,7 @@ export default function Home() {
         
 
         {/* FAQ */}
-        <Section>
-          <h2 className="text-2xl font-semibold tracking-tight">FAQ</h2>
-          <Accordion type="single" collapsible className="mt-6">
-            <AccordionItem value="item-1">
-              <AccordionTrigger>Free vs. total testosterone?</AccordionTrigger>
-              <AccordionContent>
-                We measure free (bioavailable) testosterone in saliva in pg/mL. This is not the same as a blood test’s total testosterone in ng/dL.
-                Free T reflects the fraction not bound to proteins and is more actionable for day-to-day insights.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-2">
-              <AccordionTrigger>Why morning collection?</AccordionTrigger>
-              <AccordionContent>
-                Free testosterone follows a diurnal rhythm and is typically highest in the morning. Standardized timing improves consistency across individuals.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-3">
-              <AccordionTrigger>Is this diagnostic?</AccordionTrigger>
-              <AccordionContent>
-                No — Research Use Only (RUO) for wellness and performance insights.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-4">
-              <AccordionTrigger>How long are results?</AccordionTrigger>
-              <AccordionContent>
-                You’ll receive your report after we process your sample.
-              </AccordionContent>
-            </AccordionItem>
-            <AccordionItem value="item-5">
-              <AccordionTrigger>What’s in the kit?</AccordionTrigger>
-              <AccordionContent>
-                PP collection tube(s), instructions, and packaging. Non-invasive, easy steps.
-              </AccordionContent>
-            </AccordionItem>
-          </Accordion>
-        </Section>
+        <FAQ />
 
         <Divider />
 
