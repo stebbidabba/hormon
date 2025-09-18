@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-// import Image from "next/image";
+import Image from "next/image";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
@@ -87,24 +87,40 @@ export default function Home() {
             </div>
 
             <div className="grid gap-6 md:grid-cols-2">
-              <Link href="/buy/testosterone" className="card hover-lift p-6 block">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-semibold">{t("testosteroneKit")}</h3>
-                  <span className="rounded-full bg-accent/10 text-accent text-xs px-3 py-1">{t("launchOffer")}</span>
-                </div>
-                <p className="mt-2 text-neutral-700 text-sm">Track free testosterone for strength, recovery and vitality.</p>
-                <div className="mt-4">
-                  <span className={cn(buttonVariants({ variant: "default" }), "rounded-full bg-brand hover:bg-accent text-white")}>{t("getYourKit")}</span>
+              <Link href="/buy/testosterone" className="card hover-lift p-0 overflow-hidden block">
+                <div className="grid md:grid-cols-2">
+                  <div className="relative img-zoom bg-white p-6 flex items-center justify-center">
+                    <Image src="/brand/testkit.png" alt="Testosterone Kit" width={400} height={260} className="h-auto w-[260px] object-contain" unoptimized />
+                    <div className="pointer-events-none absolute bottom-0 right-0 h-3/5 w-full bg-brand/10" style={{clipPath:'polygon(100% 0, 0 100%, 100% 100%)'}}/>
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-semibold">{t("testosteroneKit")}</h3>
+                      <span className="rounded-full bg-accent/10 text-accent text-xs px-3 py-1">{t("launchOffer")}</span>
+                    </div>
+                    <p className="mt-2 text-neutral-700 text-sm">Track free testosterone for strength, recovery and vitality.</p>
+                    <div className="mt-4">
+                      <span className={cn(buttonVariants({ variant: "default" }), "rounded-full bg-brand hover:bg-accent text-white")}>{t("getYourKit")}</span>
+                    </div>
+                  </div>
                 </div>
               </Link>
-              <Link href="/buy/male-vitality-pack" className="card hover-lift p-6 block">
-                <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-semibold">{t("stressEnergyKit")}</h3>
-                  <span className="rounded-full bg-accent/10 text-accent text-xs px-3 py-1">{t("launchOffer")}</span>
-                </div>
-                <p className="mt-2 text-neutral-700 text-sm">Balance stress and energy with a simple at-home kit.</p>
-                <div className="mt-4">
-                  <span className={cn(buttonVariants({ variant: "default" }), "rounded-full bg-brand hover:bg-accent text-white")}>{t("getYourKit")}</span>
+              <Link href="/buy/male-vitality-pack" className="card hover-lift p-0 overflow-hidden block">
+                <div className="grid md:grid-cols-2">
+                  <div className="relative img-zoom bg-white p-6 flex items-center justify-center order-last md:order-first">
+                    <Image src="/brand/malekit.png" alt="Stress & Energy Kit" width={400} height={260} className="h-auto w-[260px] object-contain" unoptimized />
+                    <div className="pointer-events-none absolute bottom-0 left-0 h-3/5 w-full bg-accent/10" style={{clipPath:'polygon(0 0, 0 100%, 100% 100%)'}}/>
+                  </div>
+                  <div className="p-6">
+                    <div className="flex items-center justify-between">
+                      <h3 className="text-xl font-semibold">{t("stressEnergyKit")}</h3>
+                      <span className="rounded-full bg-accent/10 text-accent text-xs px-3 py-1">{t("launchOffer")}</span>
+                    </div>
+                    <p className="mt-2 text-neutral-700 text-sm">Balance stress and energy with a simple at-home kit.</p>
+                    <div className="mt-4">
+                      <span className={cn(buttonVariants({ variant: "default" }), "rounded-full bg-brand hover:bg-accent text-white")}>{t("getYourKit")}</span>
+                    </div>
+                  </div>
                 </div>
               </Link>
             </div>
