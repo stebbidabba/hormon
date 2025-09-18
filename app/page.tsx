@@ -138,7 +138,7 @@ export default function Home() {
             <div className="grid gap-8 md:grid-cols-3 mb-12">
               <div className="text-center p-6 rounded-2xl bg-white border shadow-sm">
                 <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-red-50 flex items-center justify-center">
-                  <span className="text-4xl font-extrabold tracking-tight text-red-600">-30%</span>
+                  <span className="text-3xl font-extrabold tracking-tight text-red-600">-30%</span>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{t("decliningTestosterone")}</h3>
                 <p className="text-neutral-700 text-sm">{t("decliningTestosteroneText")}</p>
@@ -146,7 +146,7 @@ export default function Home() {
               
               <div className="text-center p-6 rounded-2xl bg-white border shadow-sm">
                 <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-orange-50 flex items-center justify-center">
-                  <span className="text-4xl font-extrabold tracking-tight text-orange-600">+25%</span>
+                  <span className="text-3xl font-extrabold tracking-tight text-orange-600">+25%</span>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{t("risingStress")}</h3>
                 <p className="text-neutral-700 text-sm">{t("risingStressText")}</p>
@@ -154,7 +154,7 @@ export default function Home() {
               
               <div className="text-center p-6 rounded-2xl bg-white border shadow-sm">
                 <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-yellow-50 flex items-center justify-center">
-                  <span className="text-4xl font-extrabold tracking-tight text-yellow-600">-20%</span>
+                  <span className="text-3xl font-extrabold tracking-tight text-yellow-600">-20%</span>
                 </div>
                 <h3 className="text-lg font-semibold mb-2">{t("decliningDhea")}</h3>
                 <p className="text-neutral-700 text-sm">{t("decliningDheaText")}</p>
