@@ -25,7 +25,7 @@ export default function HowItWorks() {
 
   return (
     <section className="mx-auto max-w-6xl px-4 py-16">
-      <h2 className="text-3xl font-bold tracking-tight text-center mb-16">{t("howItWorks")}</h2>
+      <h2 className="text-3xl font-bold tracking-tight text-center mb-12">{t("howItWorks")}</h2>
       
       {/* Progress line for desktop */}
       <div className="hidden lg:block relative mb-12">
@@ -41,11 +41,11 @@ export default function HowItWorks() {
       </div>
 
       {/* Steps grid (no scroll reveal; simple layout) */}
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-6 md:gap-8 md:grid-cols-2 lg:grid-cols-3">
         {steps.map((step, i) => (
           <div key={i} className="relative">
-            <div className="p-6 rounded-2xl border bg-white shadow-sm transition-shadow hover-lift card">
-              <div className="flex items-center gap-3 mb-4">
+            <div className="h-full p-6 md:p-7 rounded-2xl border bg-white shadow-sm transition-shadow hover-lift card flex flex-col">
+              <div className="flex items-center gap-3 mb-3">
                 <div className={cn(
                   "p-2 rounded-full",
                   i < 3 ? "bg-brand/10 text-brand" : "bg-blue-50 text-blue-600"
@@ -59,9 +59,9 @@ export default function HowItWorks() {
                   {t("step")} {i + 1}
                 </span>
               </div>
-              <h3 className="text-lg font-semibold mb-2">{step.title}</h3>
-              <p className="text-neutral-700 text-sm mb-3">{step.desc}</p>
-              <div className="text-xs text-neutral-500 bg-neutral-50 px-2 py-1 rounded">
+              <h3 className="text-lg font-semibold mb-2 leading-snug">{step.title}</h3>
+              <p className="text-neutral-700 text-sm leading-relaxed">{step.desc}</p>
+              <div className="mt-auto text-xs text-neutral-600 bg-neutral-50 px-2 py-1 rounded w-fit">
                 {step.trust}
               </div>
             </div>
