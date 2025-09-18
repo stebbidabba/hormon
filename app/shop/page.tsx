@@ -47,7 +47,7 @@ function ProductCard({
 
   return (
     <div className="flex flex-col h-full">
-      <div className="relative">
+      <div className="relative img-zoom hover-lift card p-4">
         {popular && (
           <span className="absolute right-3 top-3 z-10 rounded-full bg-brand px-3 py-1 text-xs font-semibold text-white">Most Popular</span>
         )}

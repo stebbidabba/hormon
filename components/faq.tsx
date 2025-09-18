@@ -15,11 +15,11 @@ export default function FAQ() {
   ];
 
   return (
-    <section className="mx-auto max-w-6xl px-4 py-16">
+    <section className="mx-auto max-w-6xl px-4 py-16 reveal-on-scroll">
       <h2 className="text-2xl font-semibold tracking-tight flex items-center gap-2"><CircleHelp size={20} className="text-brand" /> {t("faq_title")}</h2>
       <Accordion type="single" collapsible className="mt-6">
         {items.map((it, i) => (
-          <AccordionItem key={i} value={`item-${i}`}>
+          <AccordionItem key={i} value={`item-${i}`} className="card hover-lift">
             <AccordionTrigger>{it.q}</AccordionTrigger>
             <AccordionContent>{it.a}</AccordionContent>
           </AccordionItem>

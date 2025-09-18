@@ -61,7 +61,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative border-b fade-up">
+        <section className="relative border-b fade-up reveal-on-scroll">
           <div className="absolute inset-0 watermark-triskelion" aria-hidden />
           <div className="relative mx-auto max-w-6xl px-4 py-20">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]">{t("knowYourT")}</h1>
@@ -77,7 +77,7 @@ export default function Home() {
         <Divider />
 
         {/* Why Hormones Matter */}
-        <section className="relative overflow-hidden fade-up">
+        <section className="relative overflow-hidden fade-up reveal-on-scroll">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(29,58,95,0.08),transparent_40%),radial-gradient(circle_at_80%_100%,rgba(29,58,95,0.08),transparent_40%)]" aria-hidden />
           <div className="relative mx-auto max-w-6xl px-4 py-20">
             <div className="text-center mb-16">
@@ -86,7 +86,7 @@ export default function Home() {
             </div>
 
             <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-              <div className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur border">
+              <div className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur border card hover-lift">
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand/10 flex items-center justify-center">
                   <Bolt className="h-8 w-8 text-brand" />
                 </div>
@@ -94,7 +94,7 @@ export default function Home() {
                 <p className="text-neutral-700 text-sm">{t("energyDescription")}</p>
               </div>
 
-              <div className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur border">
+              <div className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur border card hover-lift">
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand/10 flex items-center justify-center">
                   <Dumbbell className="h-8 w-8 text-brand" />
                 </div>
@@ -102,7 +102,7 @@ export default function Home() {
                 <p className="text-neutral-700 text-sm">{t("muscleDescription")}</p>
               </div>
 
-              <div className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur border">
+              <div className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur border card hover-lift">
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand/10 flex items-center justify-center">
                   <Brain className="h-8 w-8 text-brand" />
                 </div>
@@ -110,7 +110,7 @@ export default function Home() {
                 <p className="text-neutral-700 text-sm">{t("focusDescription")}</p>
               </div>
 
-              <div className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur border">
+              <div className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur border card hover-lift">
                 <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand/10 flex items-center justify-center">
                   <Moon className="h-8 w-8 text-brand" />
                 </div>
@@ -164,7 +164,7 @@ export default function Home() {
               </div>
             </div>
             
-            <div className="text-center bg-white rounded-3xl border p-8 shadow-sm">
+              <div className="text-center bg-white rounded-3xl border p-8 shadow-sm card hover-lift">
               <h3 className="text-2xl font-bold text-brand mb-4">{t("takeControlTitle")}</h3>
               <p className="text-lg text-neutral-700 mb-6 max-w-3xl mx-auto">{t("takeControlText")}</p>
               <div className="flex flex-wrap justify-center gap-3">
@@ -178,7 +178,7 @@ export default function Home() {
         <Divider />
 
         {/* Results in App */}
-        <section className="bg-brand/10 border-y fade-up">
+        <section className="bg-brand/10 border-y fade-up reveal-on-scroll">
           <div className="mx-auto max-w-6xl px-4 py-20">
             <h2 className="text-3xl font-semibold tracking-tight">{t("getResultsInAppTitle")}</h2>
             <p className="mt-3 text-neutral-700 max-w-2xl">{t("getResultsInAppSubhead")}</p>
@@ -495,7 +495,7 @@ export default function Home() {
               <Link href="/buy/male-vitality-pack" className={cn(buttonVariants({ variant: "default" }), "bg-brand hover:bg-brand/90 text-white px-6 py-6 text-base")}>{t("getMaleVitalityPack")}</Link>
               <Link href="/buy/testosterone" className={cn(buttonVariants({ variant: "outline" }), "border-brand text-brand hover:bg-brand hover:text-white px-6 py-6 text-base")}>{t("getTestosteroneTest")}</Link>
             </div>
-          </div>
+        </div>
         </section>
       </main>
       <Footer />

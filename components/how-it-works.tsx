@@ -66,10 +66,10 @@ export default function HowItWorks() {
       </div>
 
       {/* Steps grid */}
-      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3">
+      <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-3 reveal-on-scroll">
         {steps.map((step, i) => (
-          <div key={i} className="relative">
-            <div className="p-6 rounded-2xl border bg-white shadow-sm hover:shadow-md transition-shadow">
+          <div key={i} className="relative fade-up">
+            <div className="p-6 rounded-2xl border bg-white shadow-sm hover:shadow-md transition-shadow hover-lift card">
               <div className="flex items-center gap-3 mb-4">
                 <div className={cn(
                   "p-2 rounded-full",
