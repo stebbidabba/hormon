@@ -36,8 +36,8 @@ export default function Navbar() {
           >
             {language === "en" ? "IS" : "EN"}
           </button>
-              <Link href="/login" className={cn(buttonVariants({ variant: "outline" }), "rounded-full border-white text-white hover:bg-white hover:text-[#1D3A5F]")}>{t("logIn")}</Link>
-              <Link href="/cart" className={cn(buttonVariants({ variant: "default" }), "rounded-full bg-white text-[#1D3A5F] hover:bg-white/90")}>{t("cart")}</Link>
+                <Link href="/login" className={cn(buttonVariants({ variant: "default" }), "rounded-full bg-white text-[#1D3A5F] hover:bg-white/90")}>{t("logIn")}</Link>
+                <Link href="/cart" className={cn(buttonVariants({ variant: "default" }), "rounded-full bg-white text-[#1D3A5F] hover:bg-white/90")}>{t("cart")}</Link>
               </div>
             </div>
       </div>
