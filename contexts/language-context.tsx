@@ -147,13 +147,13 @@ const translations = {
     step3Trust: "Tracked shipping included",
     
     // Step 4
-    step4Title: "Accurate results, certified labs",
-    step4Desc: "Your sample is analyzed using gold-standard ELISA testing at our certified European partner laboratories.",
-    step4Trust: "ISO-certified labs",
+    step4Title: "Analyze in certified labs",
+    step4Desc: "Gold‑standard ELISA testing.",
+    step4Trust: "ISO‑certified labs",
     
     // Step 5
-    step5Title: "Clear results, actionable insights",
-    step5Desc: "Access your secure results online within days. Our reports are designed to be clear and easy to understand, so you can take control of your health.",
+    step5Title: "Get clear results",
+    step5Desc: "Secure online report with guidance.",
     step5Trust: "Private & confidential",
     
     // Step 6
@@ -341,13 +341,13 @@ const translations = {
     step3Trust: "Rakningarsending fylgir",
     
     // Step 4
-    step4Title: "Nákvæmar niðurstöður, viðurkenndar rannsóknarstofur",
-    step4Desc: "Úrtakið þitt er greint með gullstöðlu ELISA prófun í viðurkenndum evrópskum samstarfsaðilum okkar.",
-    step4Trust: "ISO-viðurkenndar rannsóknarstofur",
+    step4Title: "Greint á viðurkenndum rannsóknarstofum",
+    step4Desc: "Gullstaðall ELISA prófun.",
+    step4Trust: "ISO‑viðurkenndar rannsóknarstofur",
     
     // Step 5
-    step5Title: "Skýrar niðurstöður, aðgerðarhæfar innsýnir",
-    step5Desc: "Fáðu aðgang að öruggum niðurstöðum á netinu innan daga. Skýrslurnar okkar eru hannaðar til að vera skýrar og auðskiljanlegar, svo þú getir tekið stjórn á heilsu þinni.",
+    step5Title: "Fáðu skýrar niðurstöður",
+    step5Desc: "Örugg skýrsla á netinu með leiðsögn.",
     step5Trust: "Einkamál og trúnaður",
     
     // Step 6
