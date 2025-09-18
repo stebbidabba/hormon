@@ -67,7 +67,7 @@ export default function Home() {
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]">{t("knowYourT")}</h1>
             <p className="mt-5 text-lg text-neutral-700 max-w-2xl">{t("hormonesDrive")}</p>
             <div className="mt-8 flex flex-wrap gap-3 items-center">
-              <span className="inline-flex items-center gap-2 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">{t("first50off")}</span>
+              {/* urgency removed per request */}
               <Link href="/shop" className={cn(buttonVariants({ variant: "default" }), "rounded-full bg-brand hover:bg-accent text-white px-6 py-6 text-base")}>{t("getYourKit")}</Link>
             </div>
             <p className="mt-4 text-xs text-neutral-600">{t("trustCues")}</p>
@@ -81,7 +81,6 @@ export default function Home() {
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(29,58,95,0.08),transparent_40%),radial-gradient(circle_at_80%_100%,rgba(29,58,95,0.08),transparent_40%)]" aria-hidden />
           <div className="relative mx-auto max-w-6xl px-4 py-20">
             <div className="text-center mb-12">
-              <span className="inline-flex items-center gap-2 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">{t("launchOffer")} • {t("first50off")}</span>
               <h2 className="mt-3 text-4xl font-bold tracking-tight">{t("getYourKit")}</h2>
               <p className="mt-3 text-neutral-700">Energy, recovery, vitality and stress balance — choose your starting point.</p>
             </div>
