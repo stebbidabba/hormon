@@ -38,7 +38,7 @@ export default function Page() {
           <p className="mt-3 text-neutral-700">Complete snapshot: Testosterone + Cortisol + DHEA.</p>
           <div className="text-sm text-neutral-700">Normally $150 if purchased separately — Save $30.</div>
           <div className="mt-6 text-sm text-neutral-700">
-            We measure free (bioavailable) testosterone in saliva using a research-grade ELISA. Results are in pg/mL and are not the same as a blood test's total testosterone (ng/dL). Free T reflects the fraction not bound to SHBG/albumin—the part that can act on tissues.
+            We measure free (bioavailable) testosterone in saliva using a research-grade ELISA. Results are in pg/mL and are not the same as a blood test&#39;s total testosterone (ng/dL). Free T reflects the fraction not bound to SHBG/albumin—the part that can act on tissues.
           </div>
 
           <div className="mt-8 flex gap-3">
