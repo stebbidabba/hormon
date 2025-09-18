@@ -9,43 +9,18 @@ import Link from "next/link";
 export default function HowItWorks() {
   const { t } = useLanguage();
   
+  // Reduced to 5 steps: Merge lab analysis + results into a single, clearer step for first-time visitors
   const steps = [
-    { 
-      icon: Package, 
-      title: t("step1Title"), 
-      desc: t("step1Desc"), 
-      trust: t("step1Trust") 
+    { icon: Package, title: t("step1Title"), desc: t("step1Desc"), trust: t("step1Trust") },
+    { icon: FlaskConical, title: t("step2Title"), desc: t("step2Desc"), trust: t("step2Trust") },
+    { icon: Truck, title: t("step3Title"), desc: t("step3Desc"), trust: t("step3Trust") },
+    {
+      icon: Microscope,
+      title: `${t("step4Title")} & ${t("step5Title")}`,
+      desc: `${t("step4Desc")} ${t("step5Desc")}`,
+      trust: `${t("step4Trust")} • ${t("step5Trust")}`,
     },
-    { 
-      icon: FlaskConical, 
-      title: t("step2Title"), 
-      desc: t("step2Desc"), 
-      trust: t("step2Trust") 
-    },
-    { 
-      icon: Truck, 
-      title: t("step3Title"), 
-      desc: t("step3Desc"), 
-      trust: t("step3Trust") 
-    },
-    { 
-      icon: Microscope, 
-      title: t("step4Title"), 
-      desc: t("step4Desc"), 
-      trust: t("step4Trust") 
-    },
-    { 
-      icon: ClipboardCheck, 
-      title: t("step5Title"), 
-      desc: t("step5Desc"), 
-      trust: t("step5Trust") 
-    },
-    { 
-      icon: TrendingUp, 
-      title: t("step6Title"), 
-      desc: t("step6Desc"), 
-      trust: t("step6Trust") 
-    },
+    { icon: TrendingUp, title: t("step6Title"), desc: t("step6Desc"), trust: t("step6Trust") },
   ];
 
   return (
