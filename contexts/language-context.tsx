@@ -38,7 +38,7 @@ const translations = {
     backToSite: "Back to site",
     
     // Home page
-    knowYourT: "Know Your T — or Get the Full Picture",
+    knowYourT: "Measure your hormone levels at home",
     hormonesDrive: "Your hormones drive energy, strength, mood, sleep, and focus. Measure what matters — at home.",
     getMaleVitalityPack: "Get Male Vitality Pack — $120",
     getTestosteroneTest: "Get Free Testosterone Test — $50",
