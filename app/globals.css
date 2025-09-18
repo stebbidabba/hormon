@@ -124,12 +124,23 @@
 /* Brand theme overrides */
 :root {
   --brand: #1D3A5F;
+  --accent: #3FA9F5;
 }
 
 /* Utility helpers for brand color */
 .bg-brand { background-color: var(--brand); }
 .text-brand { color: var(--brand); }
 .border-brand { border-color: var(--brand); }
+.text-accent { color: var(--accent); }
+.bg-accent { background-color: var(--accent); }
+.border-accent { border-color: var(--accent); }
+
+/* Polished cards and subtle motion */
+.card { border: 1px solid rgba(2,6,23,0.06); border-radius: 1.2rem; background: #fff; box-shadow: 0 2px 12px rgba(2,6,23,0.06); transition: box-shadow .2s ease, transform .2s ease; }
+.card:hover { box-shadow: 0 12px 34px rgba(2,6,23,0.12); transform: translateY(-2px); }
+
+@keyframes fadeUp { from { opacity: 0; transform: translateY(6px);} to { opacity: 1; transform: translateY(0);} }
+.fade-up { animation: fadeUp .4s ease both; }
 
 /* Subtle triskelion watermark utility (used in Hero/sections) */
 .watermark-triskelion {

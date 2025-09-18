@@ -61,7 +61,7 @@ export default function Home() {
       <Navbar />
       <main className="flex-1">
         {/* Hero */}
-        <section className="relative border-b">
+        <section className="relative border-b fade-up">
           <div className="absolute inset-0 watermark-triskelion" aria-hidden />
           <div className="relative mx-auto max-w-6xl px-4 py-20">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]">{t("knowYourT")}</h1>
@@ -77,7 +77,7 @@ export default function Home() {
         <Divider />
 
         {/* Why Hormones Matter */}
-        <section className="relative overflow-hidden">
+        <section className="relative overflow-hidden fade-up">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(29,58,95,0.08),transparent_40%),radial-gradient(circle_at_80%_100%,rgba(29,58,95,0.08),transparent_40%)]" aria-hidden />
           <div className="relative mx-auto max-w-6xl px-4 py-20">
             <div className="text-center mb-16">
@@ -178,7 +178,7 @@ export default function Home() {
         <Divider />
 
         {/* Results in App */}
-        <section className="bg-brand/10 border-y">
+        <section className="bg-brand/10 border-y fade-up">
           <div className="mx-auto max-w-6xl px-4 py-20">
             <h2 className="text-3xl font-semibold tracking-tight">{t("getResultsInAppTitle")}</h2>
             <p className="mt-3 text-neutral-700 max-w-2xl">{t("getResultsInAppSubhead")}</p>
