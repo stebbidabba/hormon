@@ -31,7 +31,6 @@ const translations = {
     or: "or",
     email: "Email",
     password: "Password",
-    logIn: "Log in",
     signUp: "Sign up",
     newHere: "New here?",
     createAnAccount: "Create an account",
