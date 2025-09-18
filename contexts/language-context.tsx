@@ -15,6 +15,7 @@ const LanguageContext = createContext<LanguageContextType | undefined>(undefined
 const translations = {
   en: {
     // Navbar
+    home: "Home",
     about: "About",
     process: "Process",
     shop: "Shop",
@@ -209,6 +210,7 @@ const translations = {
   },
   is: {
     // Navbar
+    home: "Heim",
     about: "Um okkur",
     process: "Ferli",
     shop: "Verslun",
