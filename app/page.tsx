@@ -128,7 +128,7 @@ export default function Home() {
         <Divider />
 
         {/* Hormone Crisis Section */}
-        <section className="bg-neutral-50 border-y">
+        <section className="bg-neutral-50 border-y fade-up reveal-on-scroll">
           <div className="mx-auto max-w-6xl px-4 py-20">
             <div className="text-center mb-12">
               <h2 className="text-3xl font-bold tracking-tight">{t("hormoneCrisisTitle")}</h2>
@@ -392,7 +392,7 @@ export default function Home() {
         <Divider />
 
         {/* Why Test Now */}
-        <Section>
+        <Section className="fade-up reveal-on-scroll">
           <h2 className="text-2xl font-semibold tracking-tight">{t("whyTestNow")}</h2>
           <div className="mt-6 grid items-stretch gap-8 lg:grid-cols-3">
             <div className="lg:col-span-2 rounded-3xl border bg-white p-6 shadow-sm h-full">
@@ -432,7 +432,7 @@ export default function Home() {
         
 
         {/* Science Explainer */}
-        <Section>
+        <Section className="fade-up reveal-on-scroll">
           <h2 className="text-2xl font-semibold tracking-tight">{t("whatWeMeasure")}</h2>
           <p className="mt-4 text-neutral-700 max-w-3xl">
             {t("scienceExplainer")}
@@ -450,7 +450,7 @@ export default function Home() {
         <Divider />
 
         {/* CTA Footer Band */}
-        <section className="border-t">
+        <section className="border-t fade-up reveal-on-scroll">
           <div className="mx-auto max-w-6xl px-4 py-14 text-center">
             <h3 className="text-2xl font-semibold tracking-tight">{t("measureWhatMatters")}</h3>
             <div className="mt-6 flex flex-wrap justify-center gap-3">
