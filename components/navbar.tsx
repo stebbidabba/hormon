@@ -14,8 +14,8 @@ export default function Navbar() {
   return (
         <header className="sticky top-0 z-40 w-full text-white">
           <div className="absolute inset-0 -z-10">
-            <div className="h-full w-full bg-gradient-to-r from-[#1D3A5F] via-[#243f73] to-[#3FA9F5]" />
-            <div className="pointer-events-none absolute right-0 top-0 h-full w-1/3 bg-white/5" style={{clipPath:'polygon(60% 0, 100% 0, 100% 100%, 0 100%)'}} />
+            <div className="h-full w-full bg-gradient-to-r from-[#3FA9F5] via-[#243f73] to-[#1D3A5F]" />
+            <div className="pointer-events-none absolute left-0 top-0 h-full w-1/3 bg-white/5" style={{clipPath:'polygon(0 0, 100% 0, 40% 100%, 0 100%)'}} />
           </div>
           <div className="mx-auto max-w-6xl px-4 h-14 md:h-16 flex items-center justify-between">
             <Link href="/" className="flex items-center gap-3 group" aria-label="MOTION Labs home">
