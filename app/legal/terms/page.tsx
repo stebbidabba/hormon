@@ -5,7 +5,7 @@ import Footer from "@/components/footer";
 import { useLanguage } from "@/contexts/language-context";
 
 export default function Page() {
-  const { t, language } = useLanguage();
+  const { language } = useLanguage();
   return (
     <div className="min-h-dvh flex flex-col">
       <Navbar />

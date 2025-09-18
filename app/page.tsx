@@ -22,86 +22,13 @@ function Divider() {
   );
 }
 
-function ValueCard({ title, text }: { title: string; text: string }) {
-  return (
-    <div className="rounded-2xl border bg-white p-6 shadow-sm">
-      <div className="font-semibold tracking-tight">{title}</div>
-      <p className="mt-2 text-sm text-neutral-700">{text}</p>
-    </div>
-  );
-}
+// ValueCard was used in a previous design; keeping codebase lean by removing unused component.
 
-function ImageReasonCard({
-  src,
-  title,
-  direction = "right",
-}: {
-  src: string;
-  title: string;
-  direction?: "left" | "right";
-}) {
-  return (
-    <div className="relative overflow-hidden rounded-3xl border bg-white">
-      <div className="relative aspect-[4/3] md:aspect-[3/2] min-h-[320px] md:min-h-[420px]">
-        <Image src={src} alt={title} fill className="object-cover object-center" />
-        {/* Brand triangle overlay */}
-        <div className="absolute inset-0 pointer-events-none">
-          {direction === "right" ? (
-            <div
-              className="absolute bottom-0 right-0 w-full h-[70%] bg-brand/90"
-              style={{ clipPath: "polygon(100% 0, 0 100%, 100% 100%)" }}
-            />
-          ) : (
-            <div
-              className="absolute bottom-0 left-0 w-full h-[70%] bg-brand/90"
-              style={{ clipPath: "polygon(0 0, 0 100%, 100% 100%)" }}
-            />
-          )}
-        </div>
-      </div>
-      <div className="absolute bottom-6 left-6">
-        <span className="inline-flex rounded-full bg-brand px-6 py-3 text-base font-semibold tracking-wide text-white shadow-sm">
-          {title}
-        </span>
-      </div>
-    </div>
-  );
-}
+// ImageReasonCard removed (legacy).
 
-function FeatureTile({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
-  return (
-    <div className="rounded-2xl border bg-white/90 p-5 shadow-sm">
-      <div className="flex items-center gap-3">
-        <div className="grid h-9 w-9 place-items-center rounded-full bg-brand/10 text-brand">{icon}</div>
-        <div className="text-base font-semibold tracking-tight">{title}</div>
-      </div>
-      <p className="mt-2 text-sm text-neutral-700">{text}</p>
-    </div>
-  );
-}
+// FeatureTile removed (legacy).
 
-function TestosteroneResultCard() {
-  return (
-    <div className="mx-auto w-full max-w-md rounded-3xl border bg-white/90 shadow-md backdrop-blur p-5">
-      <div className="flex items-start justify-between">
-        <div>
-          <div className="text-lg font-semibold text-neutral-900">Free Testosterone</div>
-          <div className="mt-1 text-[15px] font-medium text-brand">Normal</div>
-        </div>
-        <div className="text-brand text-xl font-semibold">72 <span className="text-neutral-400 text-sm align-middle">pg/mL</span></div>
-      </div>
-      <div className="mt-4 rounded-full bg-white/70 p-2 shadow-inner">
-        <div className="flex items-center gap-2">
-          <div className="h-3 flex-1 rounded-full bg-red-300/70" />
-          <div className="relative h-3 flex-[0.8] rounded-full bg-brand/80">
-            <div className="absolute -top-1 left-1/2 -translate-x-1/2 h-5 w-3 rounded-full bg-white shadow" />
-          </div>
-          <div className="h-3 flex-1 rounded-full bg-red-300/70" />
-        </div>
-      </div>
-    </div>
-  );
-}
+// TestosteroneResultCard removed (legacy).
 
 function ResultCard({ title, value, unit, status = "Normal" }: { title: string; value: string; unit: string; status?: string }) {
   return (

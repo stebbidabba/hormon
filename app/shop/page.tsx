@@ -2,10 +2,10 @@
 
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
-import Link from "next/link";
+// import Link from "next/link";
 import Image from "next/image";
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
+// import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+// import { Badge } from "@/components/ui/badge";
 import { buttonVariants } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import { Dialog, DialogContent, DialogHeader, DialogTitle, DialogTrigger } from "@/components/ui/dialog";
@@ -154,7 +154,7 @@ export default function Page() {
 
               <div className="rounded-3xl border bg-neutral-50 p-6 h-full">
                 <div className="flex items-center justify-between">
-                  <h3 className="text-xl font-semibold tracking-tight">Women's Balance Panel</h3>
+                  <h3 className="text-xl font-semibold tracking-tight">Women&apos;s Balance Panel</h3>
                   <span className="rounded-full bg-brand/10 px-3 py-1 text-xs font-medium text-brand">Coming Soon</span>
                 </div>
                 <p className="mt-2 text-neutral-700 text-sm">Includes:</p>
