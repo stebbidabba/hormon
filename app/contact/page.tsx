@@ -27,7 +27,7 @@ export default function Page() {
       <Navbar />
       <main className="flex-1">
         <section className="mx-auto max-w-2xl px-4 py-16">
-          <h1 className="text-3xl font-bold tracking-tight">{t("contact")}</h1>
+          <h1 className="text-3xl font-bold tracking-tight">{t("contactTitle")}</h1>
           <div className="mt-8 grid gap-4">
             <div className="grid gap-2">
               <Label htmlFor="name">{t("name")}</Label>

@@ -178,7 +178,7 @@ const translations = {
     faq_a5: "A saliva collection device, instructions, and a prepaid return mailer.",
     
     // Contact page
-    contact: "Contact",
+    contactTitle: "Contact",
     name: "Name",
     message: "Message",
     send: "Send",
@@ -368,6 +368,7 @@ const translations = {
     faq_a5: "Munnvatnssöfnunartæki, leiðbeiningar og fyrirgreiddur skilapakki.",
     
     // Contact page
+    contactTitle: "Hafa samband",
     contact: "Hafa samband",
     name: "Nafn",
     message: "Skilaboð",
