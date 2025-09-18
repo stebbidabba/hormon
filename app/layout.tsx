@@ -3,6 +3,7 @@ import { Montserrat } from "next/font/google";
 import "./globals.css";
 import { Toaster } from "sonner";
 import { LanguageProvider } from "@/contexts/language-context";
+import ScrollReveal from "@/components/scroll-reveal";
 
 const montserrat = Montserrat({
   subsets: ["latin"],
@@ -47,6 +48,7 @@ export default function RootLayout({
         <LanguageProvider>
           {children}
           <Toaster richColors />
+          <ScrollReveal />
         </LanguageProvider>
       </body>
     </html>
