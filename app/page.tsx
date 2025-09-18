@@ -66,9 +66,9 @@ export default function Home() {
           <div className="relative mx-auto max-w-6xl px-4 py-20">
             <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]">{t("knowYourT")}</h1>
             <p className="mt-5 text-lg text-neutral-700 max-w-2xl">{t("hormonesDrive")}</p>
-            <div className="mt-8 flex flex-wrap gap-3">
-              <Link href="/buy/male-vitality-pack" className={cn(buttonVariants({ variant: "default" }), "bg-brand hover:bg-brand/90 text-white px-6 py-6 text-base")}>{t("getMaleVitalityPack")}</Link>
-              <Link href="/buy/testosterone" className={cn(buttonVariants({ variant: "outline" }), "border-brand text-brand hover:bg-brand hover:text-white px-6 py-6 text-base")}>{t("getTestosteroneTest")}</Link>
+            <div className="mt-8 flex flex-wrap gap-3 items-center">
+              <span className="inline-flex items-center gap-2 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">{t("launchOffer")} • {t("first50off")}</span>
+              <Link href="/shop" className={cn(buttonVariants({ variant: "default" }), "rounded-full bg-brand hover:bg-accent text-white px-6 py-6 text-base")}>{t("getYourKit")}</Link>
             </div>
             <p className="mt-4 text-xs text-neutral-600">{t("trustCues")}</p>
           </div>
@@ -76,54 +76,37 @@ export default function Home() {
 
         <Divider />
 
-        {/* Why Hormones Matter */}
+        {/* Featured Kits */}
         <section className="relative overflow-hidden fade-up reveal-on-scroll">
           <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(29,58,95,0.08),transparent_40%),radial-gradient(circle_at_80%_100%,rgba(29,58,95,0.08),transparent_40%)]" aria-hidden />
           <div className="relative mx-auto max-w-6xl px-4 py-20">
-            <div className="text-center mb-16">
-              <h2 className="text-4xl font-bold tracking-tight">{t("whyHormonesMatter")}</h2>
-              <p className="mt-6 text-xl text-neutral-700 max-w-4xl mx-auto">{t("whyHormonesIntro")}</p>
+            <div className="text-center mb-12">
+              <span className="inline-flex items-center gap-2 rounded-full bg-accent/10 px-3 py-1 text-xs font-semibold text-accent">{t("launchOffer")} • {t("first50off")}</span>
+              <h2 className="mt-3 text-4xl font-bold tracking-tight">{t("getYourKit")}</h2>
+              <p className="mt-3 text-neutral-700">Energy, recovery, vitality and stress balance — choose your starting point.</p>
             </div>
 
-            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
-              <div className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur border card hover-lift">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand/10 flex items-center justify-center">
-                  <Bolt className="h-8 w-8 text-brand" />
+            <div className="grid gap-6 md:grid-cols-2">
+              <Link href="/buy/testosterone" className="card hover-lift p-6 block">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-semibold">{t("testosteroneKit")}</h3>
+                  <span className="rounded-full bg-accent/10 text-accent text-xs px-3 py-1">{t("launchOffer")}</span>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">{t("energyTitle")}</h3>
-                <p className="text-neutral-700 text-sm">{t("energyDescription")}</p>
-              </div>
-
-              <div className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur border card hover-lift">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand/10 flex items-center justify-center">
-                  <Dumbbell className="h-8 w-8 text-brand" />
+                <p className="mt-2 text-neutral-700 text-sm">Track free testosterone for strength, recovery and vitality.</p>
+                <div className="mt-4">
+                  <span className={cn(buttonVariants({ variant: "default" }), "rounded-full bg-brand hover:bg-accent text-white")}>{t("getYourKit")}</span>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">{t("muscleTitle")}</h3>
-                <p className="text-neutral-700 text-sm">{t("muscleDescription")}</p>
-              </div>
-
-              <div className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur border card hover-lift">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand/10 flex items-center justify-center">
-                  <Brain className="h-8 w-8 text-brand" />
+              </Link>
+              <Link href="/buy/male-vitality-pack" className="card hover-lift p-6 block">
+                <div className="flex items-center justify-between">
+                  <h3 className="text-xl font-semibold">{t("stressEnergyKit")}</h3>
+                  <span className="rounded-full bg-accent/10 text-accent text-xs px-3 py-1">{t("launchOffer")}</span>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">{t("focusTitle")}</h3>
-                <p className="text-neutral-700 text-sm">{t("focusDescription")}</p>
-              </div>
-
-              <div className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur border card hover-lift">
-                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand/10 flex items-center justify-center">
-                  <Moon className="h-8 w-8 text-brand" />
+                <p className="mt-2 text-neutral-700 text-sm">Balance stress and energy with a simple at-home kit.</p>
+                <div className="mt-4">
+                  <span className={cn(buttonVariants({ variant: "default" }), "rounded-full bg-brand hover:bg-accent text-white")}>{t("getYourKit")}</span>
                 </div>
-                <h3 className="text-xl font-semibold mb-3">{t("sleepStressTitle")}</h3>
-                <p className="text-neutral-700 text-sm">{t("sleepStressDescription")}</p>
-              </div>
-            </div>
-
-            <div className="mt-16 text-center">
-              <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand/10 text-brand font-medium">
-                <span className="text-sm">💡</span>
-                <span className="text-sm">{t("hormoneShiftsTagline")}</span>
-              </div>
+              </Link>
             </div>
           </div>
         </section>
