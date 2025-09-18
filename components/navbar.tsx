@@ -21,14 +21,15 @@ export default function Navbar() {
             <Link href="/" className="flex items-center gap-3 group" aria-label="MOTION Labs home">
               <Image src="/brand/name.png?v=2" alt="MOTION Labs" width={140} height={28} priority unoptimized className="transition-transform group-hover:scale-[1.02]" />
             </Link>
-            <nav className="hidden md:flex items-center gap-7 text-sm">
-              <Link href="/" className={cn("text-white/90 hover:text-white underline-offset-8 hover:underline", pathname === "/" && "font-semibold underline")}>{t("home")}</Link>
-              <Link href="/about" className={cn("text-white/90 hover:text-white underline-offset-8 hover:underline", pathname === "/about" && "font-semibold underline")}>{t("about")}</Link>
-              <Link href="/process" className={cn("text-white/90 hover:text-white underline-offset-8 hover:underline", pathname === "/process" && "font-semibold underline")}>{t("process")}</Link>
-              <Link href="/shop" className={cn("text-white/90 hover:text-white underline-offset-8 hover:underline", pathname === "/shop" && "font-semibold underline")}>{t("shop")}</Link>
-              <Link href="/contact" className={cn("text-white/90 hover:text-white underline-offset-8 hover:underline", pathname === "/contact" && "font-semibold underline")}>{t("contact")}</Link>
-        </nav>
-            <div className="flex items-center gap-2">
+            <div className="flex items-center gap-6 text-sm">
+              <nav className="hidden md:flex items-center gap-7">
+                <Link href="/" className={cn("text-white/90 hover:text-white underline-offset-8 hover:underline", pathname === "/" && "font-semibold underline")}>{t("home")}</Link>
+                <Link href="/about" className={cn("text-white/90 hover:text-white underline-offset-8 hover:underline", pathname === "/about" && "font-semibold underline")}>{t("about")}</Link>
+                <Link href="/process" className={cn("text-white/90 hover:text-white underline-offset-8 hover:underline", pathname === "/process" && "font-semibold underline")}>{t("process")}</Link>
+                <Link href="/shop" className={cn("text-white/90 hover:text-white underline-offset-8 hover:underline", pathname === "/shop" && "font-semibold underline")}>{t("shop")}</Link>
+                <Link href="/contact" className={cn("text-white/90 hover:text-white underline-offset-8 hover:underline", pathname === "/contact" && "font-semibold underline")}>{t("contact")}</Link>
+              </nav>
+              <div className="flex items-center gap-2">
           <button
             onClick={() => setLanguage(language === "en" ? "is" : "en")}
                 className="rounded-md bg-white/10 px-2 py-1 text-xs font-medium hover:bg-white/20"
@@ -37,7 +38,8 @@ export default function Navbar() {
           </button>
               <Link href="/login" className={cn(buttonVariants({ variant: "outline" }), "rounded-full border-white text-white hover:bg-white hover:text-[#1D3A5F]")}>{t("logIn")}</Link>
               <Link href="/cart" className={cn(buttonVariants({ variant: "default" }), "rounded-full bg-white text-[#1D3A5F] hover:bg-white/90")}>{t("cart")}</Link>
-        </div>
+              </div>
+            </div>
       </div>
     </header>
   );
