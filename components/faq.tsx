@@ -15,7 +15,7 @@ export default function FAQ() {
   ];
 
   return (
-    <section className="mx-auto max-w-6xl px-4 py-16 reveal-on-scroll">
+    <section className="mx-auto max-w-6xl px-4 py-16">
       <h2 className="text-2xl font-semibold tracking-tight flex items-center gap-2"><CircleHelp size={20} className="text-brand" /> {t("faq_title")}</h2>
       <Accordion type="single" collapsible className="mt-6 space-y-3">
         {items.map((it, i) => (

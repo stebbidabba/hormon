@@ -1,12 +1,18 @@
 "use client";
 
 import { useEffect } from "react";
+import { usePathname } from "next/navigation";
 
 export default function ScrollReveal() {
+  const pathname = usePathname();
+
   useEffect(() => {
     if (typeof window === "undefined") return;
-    const elements = Array.from(document.querySelectorAll<HTMLElement>(".reveal-on-scroll"));
+    const q = ".reveal-on-scroll";
+    const elements = Array.from(document.querySelectorAll<HTMLElement>(q));
     const reveal = (el: Element) => (el as HTMLElement).classList.add("is-visible");
+
+    if (elements.length === 0) return;
 
     // If IntersectionObserver is not supported, reveal everything
     if (!("IntersectionObserver" in window)) {
@@ -28,7 +34,7 @@ export default function ScrollReveal() {
 
     elements.forEach((el) => observer.observe(el));
     return () => observer.disconnect();
-  }, []);
+  }, [pathname]);
 
   return null;
 }
