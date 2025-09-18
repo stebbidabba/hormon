@@ -25,7 +25,7 @@ function ProductCard({
 }: {
   title: string;
   price: number;
-  href: string;
+  href?: string;
   popular?: boolean;
   description: string;
   imageSrc: string;

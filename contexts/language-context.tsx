@@ -368,7 +368,6 @@ const translations = {
     
     // Contact page
     contactTitle: "Hafa samband",
-    contact: "Hafa samband",
     name: "Nafn",
     message: "Skilaboð",
     send: "Senda",
