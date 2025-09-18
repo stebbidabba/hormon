@@ -220,7 +220,6 @@ const translations = {
     or: "eða",
     email: "Netfang",
     password: "Lykilorð",
-    logIn: "Skrá inn",
     signUp: "Skrá sig",
     newHere: "Nýr hér?",
     createAnAccount: "Búðu til aðgang",
