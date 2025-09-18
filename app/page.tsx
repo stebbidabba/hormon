@@ -1,103 +1,577 @@
+"use client";
+
+import Link from "next/link";
 import Image from "next/image";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
+import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
+import { cn } from "@/lib/utils";
+import { buttonVariants } from "@/components/ui/button";
+import { useLanguage } from "@/contexts/language-context";
+import { Bolt, Dumbbell, Brain, Moon, ClipboardCheck } from "lucide-react";
+
+function Section({ children, className = "" }: { children: React.ReactNode; className?: string }) {
+  return <section className={cn("mx-auto max-w-6xl px-4 py-16", className)}>{children}</section>;
+}
+
+function Divider() {
+  return (
+    <div className="relative h-16">
+      <div className="absolute inset-0 bg-[url('/brand/triskelion.png')] bg-no-repeat bg-center opacity-[0.05]" style={{ backgroundSize: 140 }} aria-hidden />
+    </div>
+  );
+}
+
+function ValueCard({ title, text }: { title: string; text: string }) {
+  return (
+    <div className="rounded-2xl border bg-white p-6 shadow-sm">
+      <div className="font-semibold tracking-tight">{title}</div>
+      <p className="mt-2 text-sm text-neutral-700">{text}</p>
+    </div>
+  );
+}
+
+function ImageReasonCard({
+  src,
+  title,
+  direction = "right",
+}: {
+  src: string;
+  title: string;
+  direction?: "left" | "right";
+}) {
+  return (
+    <div className="relative overflow-hidden rounded-3xl border bg-white">
+      <div className="relative aspect-[4/3] md:aspect-[3/2] min-h-[320px] md:min-h-[420px]">
+        <Image src={src} alt={title} fill className="object-cover object-center" />
+        {/* Brand triangle overlay */}
+        <div className="absolute inset-0 pointer-events-none">
+          {direction === "right" ? (
+            <div
+              className="absolute bottom-0 right-0 w-full h-[70%] bg-brand/90"
+              style={{ clipPath: "polygon(100% 0, 0 100%, 100% 100%)" }}
+            />
+          ) : (
+            <div
+              className="absolute bottom-0 left-0 w-full h-[70%] bg-brand/90"
+              style={{ clipPath: "polygon(0 0, 0 100%, 100% 100%)" }}
+            />
+          )}
+        </div>
+      </div>
+      <div className="absolute bottom-6 left-6">
+        <span className="inline-flex rounded-full bg-brand px-6 py-3 text-base font-semibold tracking-wide text-white shadow-sm">
+          {title}
+        </span>
+      </div>
+    </div>
+  );
+}
+
+function FeatureTile({ icon, title, text }: { icon: React.ReactNode; title: string; text: string }) {
+  return (
+    <div className="rounded-2xl border bg-white/90 p-5 shadow-sm">
+      <div className="flex items-center gap-3">
+        <div className="grid h-9 w-9 place-items-center rounded-full bg-brand/10 text-brand">{icon}</div>
+        <div className="text-base font-semibold tracking-tight">{title}</div>
+      </div>
+      <p className="mt-2 text-sm text-neutral-700">{text}</p>
+    </div>
+  );
+}
+
+function TestosteroneResultCard() {
+  return (
+    <div className="mx-auto w-full max-w-md rounded-3xl border bg-white/90 shadow-md backdrop-blur p-5">
+      <div className="flex items-start justify-between">
+        <div>
+          <div className="text-lg font-semibold text-neutral-900">Free Testosterone</div>
+          <div className="mt-1 text-[15px] font-medium text-brand">Normal</div>
+        </div>
+        <div className="text-brand text-xl font-semibold">72 <span className="text-neutral-400 text-sm align-middle">pg/mL</span></div>
+      </div>
+      <div className="mt-4 rounded-full bg-white/70 p-2 shadow-inner">
+        <div className="flex items-center gap-2">
+          <div className="h-3 flex-1 rounded-full bg-red-300/70" />
+          <div className="relative h-3 flex-[0.8] rounded-full bg-brand/80">
+            <div className="absolute -top-1 left-1/2 -translate-x-1/2 h-5 w-3 rounded-full bg-white shadow" />
+          </div>
+          <div className="h-3 flex-1 rounded-full bg-red-300/70" />
+        </div>
+      </div>
+    </div>
+  );
+}
+
+function ResultCard({ title, value, unit, status = "Normal" }: { title: string; value: string; unit: string; status?: string }) {
+  return (
+    <div className="mx-auto w-full max-w-sm rounded-3xl border bg-white/90 shadow-md backdrop-blur p-5">
+      <div className="flex items-start justify-between">
+        <div>
+          <div className="text-lg font-semibold text-neutral-900">{title}</div>
+          <div className="mt-1 text-[15px] font-medium text-brand">{status}</div>
+        </div>
+        <div className="text-brand text-xl font-semibold">{value} <span className="text-neutral-400 text-sm align-middle">{unit}</span></div>
+      </div>
+      <div className="mt-4 rounded-full bg-white/70 p-2 shadow-inner">
+        <div className="flex items-center gap-2">
+          <div className="h-3 flex-1 rounded-full bg-red-300/70" />
+          <div className="relative h-3 flex-[0.8] rounded-full bg-brand/80">
+            <div className="absolute -top-1 left-1/2 -translate-x-1/2 h-5 w-3 rounded-full bg-white shadow" />
+          </div>
+          <div className="h-3 flex-1 rounded-full bg-red-300/70" />
+        </div>
+      </div>
+    </div>
+  );
+}
 
 export default function Home() {
+  const { t } = useLanguage();
+  
   return (
-    <div className="font-sans grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="font-mono list-inside list-decimal text-sm/6 text-center sm:text-left">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] font-mono font-semibold px-1 py-0.5 rounded">
-              app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+    <div className="min-h-dvh flex flex-col">
+      <Navbar />
+      <main className="flex-1">
+        {/* Hero */}
+        <section className="relative border-b">
+          <div className="absolute inset-0 watermark-triskelion" aria-hidden />
+          <div className="relative mx-auto max-w-6xl px-4 py-20">
+            <h1 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.05]">{t("knowYourT")}</h1>
+            <p className="mt-5 text-lg text-neutral-700 max-w-2xl">{t("hormonesDrive")}</p>
+            <div className="mt-8 flex flex-wrap gap-3">
+              <Link href="/buy/male-vitality-pack" className={cn(buttonVariants({ variant: "default" }), "bg-brand hover:bg-brand/90 text-white px-6 py-6 text-base")}>{t("getMaleVitalityPack")}</Link>
+              <Link href="/buy/testosterone" className={cn(buttonVariants({ variant: "outline" }), "border-brand text-brand hover:bg-brand hover:text-white px-6 py-6 text-base")}>{t("getTestosteroneTest")}</Link>
+            </div>
+            <p className="mt-4 text-xs text-neutral-600">{t("trustCues")}</p>
+          </div>
+        </section>
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
+        <Divider />
+
+        {/* Why Hormones Matter */}
+        <section className="relative overflow-hidden">
+          <div className="absolute inset-0 bg-[radial-gradient(circle_at_20%_0%,rgba(29,58,95,0.08),transparent_40%),radial-gradient(circle_at_80%_100%,rgba(29,58,95,0.08),transparent_40%)]" aria-hidden />
+          <div className="relative mx-auto max-w-6xl px-4 py-20">
+            <div className="text-center mb-16">
+              <h2 className="text-4xl font-bold tracking-tight">{t("whyHormonesMatter")}</h2>
+              <p className="mt-6 text-xl text-neutral-700 max-w-4xl mx-auto">{t("whyHormonesIntro")}</p>
+            </div>
+
+            <div className="grid gap-8 md:grid-cols-2 lg:grid-cols-4">
+              <div className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur border">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand/10 flex items-center justify-center">
+                  <Bolt className="h-8 w-8 text-brand" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">{t("energyTitle")}</h3>
+                <p className="text-neutral-700 text-sm">{t("energyDescription")}</p>
+              </div>
+
+              <div className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur border">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand/10 flex items-center justify-center">
+                  <Dumbbell className="h-8 w-8 text-brand" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">{t("muscleTitle")}</h3>
+                <p className="text-neutral-700 text-sm">{t("muscleDescription")}</p>
+              </div>
+
+              <div className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur border">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand/10 flex items-center justify-center">
+                  <Brain className="h-8 w-8 text-brand" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">{t("focusTitle")}</h3>
+                <p className="text-neutral-700 text-sm">{t("focusDescription")}</p>
+              </div>
+
+              <div className="text-center p-6 rounded-2xl bg-white/50 backdrop-blur border">
+                <div className="w-16 h-16 mx-auto mb-4 rounded-full bg-brand/10 flex items-center justify-center">
+                  <Moon className="h-8 w-8 text-brand" />
+                </div>
+                <h3 className="text-xl font-semibold mb-3">{t("sleepStressTitle")}</h3>
+                <p className="text-neutral-700 text-sm">{t("sleepStressDescription")}</p>
+              </div>
+            </div>
+
+            <div className="mt-16 text-center">
+              <div className="inline-flex items-center gap-2 px-6 py-3 rounded-full bg-brand/10 text-brand font-medium">
+                <span className="text-sm">💡</span>
+                <span className="text-sm">{t("hormoneShiftsTagline")}</span>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Divider />
+
+        {/* Hormone Crisis Section */}
+        <section className="bg-neutral-50 border-y">
+          <div className="mx-auto max-w-6xl px-4 py-20">
+            <div className="text-center mb-12">
+              <h2 className="text-3xl font-bold tracking-tight">{t("hormoneCrisisTitle")}</h2>
+              <p className="mt-6 text-lg text-neutral-700 max-w-4xl mx-auto">{t("hormoneCrisisIntro")}</p>
+            </div>
+            
+            <div className="grid gap-8 md:grid-cols-3 mb-12">
+              <div className="text-center p-6 rounded-2xl bg-white border shadow-sm">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-red-50 flex items-center justify-center">
+                  <span className="text-4xl font-extrabold tracking-tight text-red-600">-30%</span>
+                </div>
+                <h3 className="text-lg font-semibold mb-2">{t("decliningTestosterone")}</h3>
+                <p className="text-neutral-700 text-sm">{t("decliningTestosteroneText")}</p>
+              </div>
+              
+              <div className="text-center p-6 rounded-2xl bg-white border shadow-sm">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-orange-50 flex items-center justify-center">
+                  <span className="text-4xl font-extrabold tracking-tight text-orange-600">+25%</span>
+                </div>
+                <h3 className="text-lg font-semibold mb-2">{t("risingStress")}</h3>
+                <p className="text-neutral-700 text-sm">{t("risingStressText")}</p>
+              </div>
+              
+              <div className="text-center p-6 rounded-2xl bg-white border shadow-sm">
+                <div className="w-20 h-20 mx-auto mb-4 rounded-full bg-yellow-50 flex items-center justify-center">
+                  <span className="text-4xl font-extrabold tracking-tight text-yellow-600">-20%</span>
+                </div>
+                <h3 className="text-lg font-semibold mb-2">{t("decliningDhea")}</h3>
+                <p className="text-neutral-700 text-sm">{t("decliningDheaText")}</p>
+              </div>
+            </div>
+            
+            <div className="text-center bg-white rounded-3xl border p-8 shadow-sm">
+              <h3 className="text-2xl font-bold text-brand mb-4">{t("takeControlTitle")}</h3>
+              <p className="text-lg text-neutral-700 mb-6 max-w-3xl mx-auto">{t("takeControlText")}</p>
+              <div className="flex flex-wrap justify-center gap-3">
+                <Link href="/shop" className={cn(buttonVariants({ variant: "default" }), "bg-brand hover:bg-brand/90 text-white px-6 py-3 text-base")}>{t("startTrackingNow")}</Link>
+                <Link href="/process" className={cn(buttonVariants({ variant: "outline" }), "border-brand text-brand hover:bg-brand hover:text-white px-6 py-3 text-base")}>{t("learnHowItWorks")}</Link>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <Divider />
+
+        {/* Results in App */}
+        <section className="bg-brand/10 border-y">
+          <div className="mx-auto max-w-6xl px-4 py-20">
+            <h2 className="text-3xl font-semibold tracking-tight">{t("getResultsInAppTitle")}</h2>
+            <p className="mt-3 text-neutral-700 max-w-2xl">{t("getResultsInAppSubhead")}</p>
+            
+            {/* Individual Hormone Graphs */}
+            <div className="mt-12 grid gap-8 md:grid-cols-3">
+              {/* Free Testosterone Graph */}
+              <div className="bg-white rounded-2xl border border-neutral-200 p-6 shadow-sm">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-lg font-semibold text-neutral-900">{t("freeTestosteroneTitle")}</h3>
+                  <div className="flex items-center gap-2 text-sm text-green-600 font-medium">
+                    <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                    <span>+12%</span>
+                  </div>
+                </div>
+                <div className="relative h-48 w-full">
+                  <svg viewBox="0 0 300 150" className="w-full h-full">
+                    <defs>
+                      <linearGradient id="testosteroneGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#1D3A5F" stopOpacity="0.3"/>
+                        <stop offset="100%" stopColor="#1D3A5F" stopOpacity="0.05"/>
+                      </linearGradient>
+                      <pattern id="testosteroneGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+                        <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#f3f4f6" strokeWidth="1"/>
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#testosteroneGrid)" />
+                    {/* Normal range band (pg/mL ~60-100) */}
+                    <rect x="40" y="40" width="240" height="60" fill="#1D3A5F" opacity="0.08" />
+                    
+                    {/* Y-axis labels */}
+                    <text x="10" y="20" className="text-xs font-medium fill-neutral-600">120</text>
+                    <text x="10" y="60" className="text-xs font-medium fill-neutral-600">90</text>
+                    <text x="10" y="100" className="text-xs font-medium fill-neutral-600">60</text>
+                    <text x="10" y="140" className="text-xs font-medium fill-neutral-600">30</text>
+                    
+                    {/* X-axis labels */}
+                    <text x="50" y="145" className="text-xs font-medium fill-neutral-600">Jan</text>
+                    <text x="100" y="145" className="text-xs font-medium fill-neutral-600">Feb</text>
+                    <text x="150" y="145" className="text-xs font-medium fill-neutral-600">Mar</text>
+                    <text x="200" y="145" className="text-xs font-medium fill-neutral-600">Apr</text>
+                    <text x="250" y="145" className="text-xs font-medium fill-neutral-600">May</text>
+                    <text x="290" y="145" className="text-xs font-medium fill-neutral-600">Jun</text>
+                    
+                    {/* Free Testosterone area and line (varied but generally upward) */}
+                    <polygon
+                      points="50,105 100,95 150,100 200,85 250,70 290,65 290,150 50,150"
+                      fill="url(#testosteroneGradient)"
+                    />
+                    <polyline
+                      points="50,105 100,95 150,100 200,85 250,70 290,65"
+                      fill="none"
+                      stroke="#1D3A5F"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    
+                    {/* Data points */}
+                    <circle cx="50" cy="105" r="4" fill="#1D3A5F" stroke="white" strokeWidth="2"/>
+                    <circle cx="100" cy="95" r="4" fill="#1D3A5F" stroke="white" strokeWidth="2"/>
+                    <circle cx="150" cy="100" r="4" fill="#1D3A5F" stroke="white" strokeWidth="2"/>
+                    <circle cx="200" cy="85" r="4" fill="#1D3A5F" stroke="white" strokeWidth="2"/>
+                    <circle cx="250" cy="70" r="4" fill="#1D3A5F" stroke="white" strokeWidth="2"/>
+                    <circle cx="290" cy="65" r="4" fill="#1D3A5F" stroke="white" strokeWidth="2"/>
+                  </svg>
+                </div>
+                <div className="mt-3 text-center">
+                  <span className="text-sm text-neutral-600">{t("currentWithinRange")}</span>
+                </div>
+              </div>
+
+              {/* Cortisol Graph */}
+              <div className="bg-white rounded-2xl border border-neutral-200 p-6 shadow-sm">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-lg font-semibold text-neutral-900">{t("cortisolTitle")}</h3>
+                  <div className="flex items-center gap-2 text-sm text-red-600 font-medium">
+                    <div className="w-2 h-2 rounded-full bg-red-500"></div>
+                    <span>-10%</span>
+                  </div>
+                </div>
+                <div className="relative h-48 w-full">
+                  <svg viewBox="0 0 300 150" className="w-full h-full">
+                    <defs>
+                      <linearGradient id="cortisolGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#3B82F6" stopOpacity="0.3"/>
+                        <stop offset="100%" stopColor="#3B82F6" stopOpacity="0.05"/>
+                      </linearGradient>
+                      <pattern id="cortisolGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+                        <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#f3f4f6" strokeWidth="1"/>
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#cortisolGrid)" />
+                    {/* Normal range band (ng/mL ~5-20) */}
+                    <rect x="40" y="60" width="240" height="80" fill="#3B82F6" opacity="0.08" />
+                    
+                    {/* Y-axis labels (ng/mL) */}
+                    <text x="10" y="20" className="text-xs font-medium fill-neutral-600">25</text>
+                    <text x="10" y="60" className="text-xs font-medium fill-neutral-600">20</text>
+                    <text x="10" y="100" className="text-xs font-medium fill-neutral-600">15</text>
+                    <text x="10" y="140" className="text-xs font-medium fill-neutral-600">5</text>
+                    
+                    {/* X-axis labels */}
+                    <text x="50" y="145" className="text-xs font-medium fill-neutral-600">Jan</text>
+                    <text x="100" y="145" className="text-xs font-medium fill-neutral-600">Feb</text>
+                    <text x="150" y="145" className="text-xs font-medium fill-neutral-600">Mar</text>
+                    <text x="200" y="145" className="text-xs font-medium fill-neutral-600">Apr</text>
+                    <text x="250" y="145" className="text-xs font-medium fill-neutral-600">May</text>
+                    <text x="290" y="145" className="text-xs font-medium fill-neutral-600">Jun</text>
+                    
+                    {/* Cortisol area and line (downward trend) */}
+                    <polygon
+                      points="50,50 100,70 150,85 200,95 250,105 290,115 290,150 50,150"
+                      fill="url(#cortisolGradient)"
+                    />
+                    <polyline
+                      points="50,50 100,70 150,85 200,95 250,105 290,115"
+                      fill="none"
+                      stroke="#3B82F6"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    
+                    {/* Data points */}
+                    <circle cx="50" cy="50" r="4" fill="#3B82F6" stroke="white" strokeWidth="2"/>
+                    <circle cx="100" cy="70" r="4" fill="#3B82F6" stroke="white" strokeWidth="2"/>
+                    <circle cx="150" cy="85" r="4" fill="#3B82F6" stroke="white" strokeWidth="2"/>
+                    <circle cx="200" cy="95" r="4" fill="#3B82F6" stroke="white" strokeWidth="2"/>
+                    <circle cx="250" cy="105" r="4" fill="#3B82F6" stroke="white" strokeWidth="2"/>
+                    <circle cx="290" cy="115" r="4" fill="#3B82F6" stroke="white" strokeWidth="2"/>
+                  </svg>
+                </div>
+                <div className="mt-3 text-center">
+                  <span className="text-sm text-neutral-600">{t("currentCortisol")}</span>
+                </div>
+              </div>
+
+              {/* DHEA Graph */}
+              <div className="bg-white rounded-2xl border border-neutral-200 p-6 shadow-sm">
+                <div className="flex items-center justify-between mb-4">
+                  <h3 className="text-lg font-semibold text-neutral-900">{t("dheaTitle")}</h3>
+                  <div className="flex items-center gap-2 text-sm text-green-600 font-medium">
+                    <div className="w-2 h-2 rounded-full bg-green-500"></div>
+                    <span>+22%</span>
+                  </div>
+                </div>
+                <div className="relative h-48 w-full">
+                  <svg viewBox="0 0 300 150" className="w-full h-full">
+                    <defs>
+                      <linearGradient id="dheaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                        <stop offset="0%" stopColor="#1E40AF" stopOpacity="0.3"/>
+                        <stop offset="100%" stopColor="#1E40AF" stopOpacity="0.05"/>
+                      </linearGradient>
+                      <pattern id="dheaGrid" width="30" height="30" patternUnits="userSpaceOnUse">
+                        <path d="M 30 0 L 0 0 0 30" fill="none" stroke="#f3f4f6" strokeWidth="1"/>
+                      </pattern>
+                    </defs>
+                    <rect width="100%" height="100%" fill="url(#dheaGrid)" />
+                    {/* Normal range band (pg/mL ~150-300) */}
+                    <rect x="40" y="60" width="240" height="60" fill="#1E40AF" opacity="0.08" />
+                    
+                    {/* Y-axis labels (pg/mL) */}
+                    <text x="10" y="20" className="text-xs font-medium fill-neutral-600">400</text>
+                    <text x="10" y="60" className="text-xs font-medium fill-neutral-600">300</text>
+                    <text x="10" y="100" className="text-xs font-medium fill-neutral-600">200</text>
+                    <text x="10" y="140" className="text-xs font-medium fill-neutral-600">100</text>
+                    
+                    {/* X-axis labels */}
+                    <text x="50" y="145" className="text-xs font-medium fill-neutral-600">Jan</text>
+                    <text x="100" y="145" className="text-xs font-medium fill-neutral-600">Feb</text>
+                    <text x="150" y="145" className="text-xs font-medium fill-neutral-600">Mar</text>
+                    <text x="200" y="145" className="text-xs font-medium fill-neutral-600">Apr</text>
+                    <text x="250" y="145" className="text-xs font-medium fill-neutral-600">May</text>
+                    <text x="290" y="145" className="text-xs font-medium fill-neutral-600">Jun</text>
+                    
+                    {/* DHEA area and line (varied, slight dip) */}
+                    <polygon
+                      points="50,120 100,110 150,100 200,105 250,95 290,85 290,150 50,150"
+                      fill="url(#dheaGradient)"
+                    />
+                    <polyline
+                      points="50,120 100,110 150,100 200,105 250,95 290,85"
+                      fill="none"
+                      stroke="#1E40AF"
+                      strokeWidth="3"
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                    />
+                    
+                    {/* Data points */}
+                    <circle cx="50" cy="120" r="4" fill="#1E40AF" stroke="white" strokeWidth="2"/>
+                    <circle cx="100" cy="110" r="4" fill="#1E40AF" stroke="white" strokeWidth="2"/>
+                    <circle cx="150" cy="100" r="4" fill="#1E40AF" stroke="white" strokeWidth="2"/>
+                    <circle cx="200" cy="105" r="4" fill="#1E40AF" stroke="white" strokeWidth="2"/>
+                    <circle cx="250" cy="95" r="4" fill="#1E40AF" stroke="white" strokeWidth="2"/>
+                    <circle cx="290" cy="85" r="4" fill="#1E40AF" stroke="white" strokeWidth="2"/>
+                  </svg>
+                </div>
+                <div className="mt-3 text-center">
+                  <span className="text-sm text-neutral-600">{t("currentDhea")}</span>
+                </div>
+              </div>
+            </div>
+            
+            <div className="mt-10 grid gap-6 md:grid-cols-3">
+              <ResultCard title="Testosterone" value="72" unit="pg/mL" />
+              <ResultCard title="Cortisol" value="9.7" unit="ng/mL" />
+              <ResultCard title="DHEA" value="246" unit="pg/mL" />
+            </div>
+          </div>
+        </section>
+
+        <Divider />
+
+        {/* Why Test Now */}
+        <Section>
+          <h2 className="text-2xl font-semibold tracking-tight">{t("whyTestNow")}</h2>
+          <div className="mt-6 grid items-stretch gap-8 lg:grid-cols-3">
+            <div className="lg:col-span-2 rounded-3xl border bg-white p-6 shadow-sm h-full">
+              <div className="grid gap-8 md:grid-cols-2 h-full">
+                <ul className="space-y-3 text-sm text-neutral-800 self-center">
+                  <li>• {t("actionableBaseline")}</li>
+                  <li>• {t("trackProgress")}</li>
+                  <li>• {t("morningSnapshot")}</li>
+                </ul>
+                <ul className="space-y-3 text-sm text-neutral-800 self-center">
+                  <li>• {t("nonInvasive")}</li>
+                  <li>• {t("private")}</li>
+                  <li>• {t("fastSetup")}</li>
+                </ul>
+              </div>
+            </div>
+            <div className="rounded-3xl border bg-white p-6 shadow-sm h-full flex flex-col">
+              <div className="inline-flex items-center gap-2 rounded-full bg-brand/10 px-3 py-1 text-xs font-semibold text-brand">
+                <ClipboardCheck className="h-4 w-4" /> {t("guidanceBadge")}
+              </div>
+              <h3 className="mt-4 text-xl font-semibold tracking-tight">{t("guidanceTitle")}</h3>
+              <p className="mt-2 text-neutral-700 text-sm">{t("guidanceBody")}</p>
+              <div className="mt-4 grid grid-cols-2 gap-2 text-xs text-neutral-600 mt-auto">
+                <div className="rounded-lg border bg-neutral-50 p-3">
+                  <div className="font-medium text-neutral-900">{t("guidanceItem1Title")}</div>
+                  <div>{t("guidanceItem1Body")}</div>
+                </div>
+                <div className="rounded-lg border bg-neutral-50 p-3">
+                  <div className="font-medium text-neutral-900">{t("guidanceItem2Title")}</div>
+                  <div>{t("guidanceItem2Body")}</div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </Section>
+
+        
+
+        {/* Science Explainer */}
+        <Section>
+          <h2 className="text-2xl font-semibold tracking-tight">{t("whatWeMeasure")}</h2>
+          <p className="mt-4 text-neutral-700 max-w-3xl">
+            {t("scienceExplainer")}
+          </p>
+          <div className="mt-6 rounded-xl border bg-neutral-50 p-4 text-xs text-neutral-700">
+            {t("ruoDisclaimer")}
+          </div>
+        </Section>
+
+        
+
+        {/* FAQ */}
+        <Section>
+          <h2 className="text-2xl font-semibold tracking-tight">FAQ</h2>
+          <Accordion type="single" collapsible className="mt-6">
+            <AccordionItem value="item-1">
+              <AccordionTrigger>Free vs. total testosterone?</AccordionTrigger>
+              <AccordionContent>
+                We measure free (bioavailable) testosterone in saliva in pg/mL. This is not the same as a blood test’s total testosterone in ng/dL.
+                Free T reflects the fraction not bound to proteins and is more actionable for day-to-day insights.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-2">
+              <AccordionTrigger>Why morning collection?</AccordionTrigger>
+              <AccordionContent>
+                Free testosterone follows a diurnal rhythm and is typically highest in the morning. Standardized timing improves consistency across individuals.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-3">
+              <AccordionTrigger>Is this diagnostic?</AccordionTrigger>
+              <AccordionContent>
+                No — Research Use Only (RUO) for wellness and performance insights.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-4">
+              <AccordionTrigger>How long are results?</AccordionTrigger>
+              <AccordionContent>
+                You’ll receive your report after we process your sample.
+              </AccordionContent>
+            </AccordionItem>
+            <AccordionItem value="item-5">
+              <AccordionTrigger>What’s in the kit?</AccordionTrigger>
+              <AccordionContent>
+                PP collection tube(s), instructions, and packaging. Non-invasive, easy steps.
+              </AccordionContent>
+            </AccordionItem>
+          </Accordion>
+        </Section>
+
+        <Divider />
+
+        {/* CTA Footer Band */}
+        <section className="border-t">
+          <div className="mx-auto max-w-6xl px-4 py-14 text-center">
+            <h3 className="text-2xl font-semibold tracking-tight">{t("measureWhatMatters")}</h3>
+            <div className="mt-6 flex flex-wrap justify-center gap-3">
+              <Link href="/buy/male-vitality-pack" className={cn(buttonVariants({ variant: "default" }), "bg-brand hover:bg-brand/90 text-white px-6 py-6 text-base")}>{t("getMaleVitalityPack")}</Link>
+              <Link href="/buy/testosterone" className={cn(buttonVariants({ variant: "outline" }), "border-brand text-brand hover:bg-brand hover:text-white px-6 py-6 text-base")}>{t("getTestosteroneTest")}</Link>
+            </div>
+          </div>
+        </section>
       </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+      <Footer />
     </div>
   );
 }
